@@ -1,0 +1,3 @@
+git commit -m 'pure rack app'
+
+git push heroku master
