@@ -5,7 +5,7 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'slim'
-gem 'json', '1.8.3.1'
+gem 'json', github: 'flori/json', branch: 'v1.8'
 
 # Used during local development (on your own machine)
 group :development do
