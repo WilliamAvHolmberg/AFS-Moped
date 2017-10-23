@@ -1,0 +1,50 @@
+# Used to run your rake tasks (rake db:seed & rake test:[acceptance|models|routes])
+
+# Use bundler to load gems
+require 'bundler'
+
+# Load gems from Gemfile
+Bundler.require
+
+# Rake tasks for database management
+namespace :db do
+
+  # Task for populating the database from db/seed.rb
+  # rake db:seed
+  task :seed do
+
+    puts "*******************"
+    puts "* Seeding database, this means completely rewriting the tables *"
+    puts "*******************"
+
+    # Load all models etc
+    require_relative 'config/environment'
+
+    # Update the database schema
+    DataMapper.auto_migrate!
+
+    # Add seed data to database
+    require './db/seed'
+    Seeder.seed!
+  end
+
+  # Task for populating the database from db/seed.rb
+  # rake db:seed
+  task :upgrade do
+
+    puts "*******************"
+    puts "* Upgrading the database, this means upgrading without deleting existing data *"
+    puts "*******************"
+
+    # Load all models etc
+    require_relative 'config/environment'
+
+    # Update the database schema
+    DataMapper.auto_upgrade!
+
+    # Add seed data to database
+    require './db/seed'
+    Seeder.seed!
+  end
+
+end
