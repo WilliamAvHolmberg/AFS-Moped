@@ -1,3 +1,4 @@
-git commit -m 'pure rack app'
-
+git init
+git add . || git add filename1
+git commit -m 'pure rack app' || git commit -a - m "message"
 git push heroku master
