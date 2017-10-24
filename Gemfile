@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'slim'
 gem 'json', github: 'flori/json', branch: 'v1.8'
+gem 'rake'
 
 # Used during local development (on your own machine)
 group :development do
