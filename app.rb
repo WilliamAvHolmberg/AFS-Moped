@@ -36,7 +36,7 @@ class App < Sinatra::Base
   end
 
   post '/articles/:id/delete' do |id|
-    Article.get(id)
+    Article.get(id).destroy
     redirect to '/articles'
   end
 end
