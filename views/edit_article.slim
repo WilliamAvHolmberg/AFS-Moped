@@ -1,0 +1,6 @@
+h1 Edit An Existing Article
+form method="POST" action="/articles/update"
+  == slim :article_form
+form action="/articles/#{@article.id}/delete" method="POST"
+  input type="hidden" name="_method" value="DELETE"
+  input type="submit" value="delete this song"

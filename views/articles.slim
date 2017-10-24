@@ -1,0 +1,6 @@
+h1 List of all our Articles
+
+- if !@articles.nil?
+  - @articles.each do |article|
+    p <a href="/articles/#{article.id}"> #{article.name} </a>
+h3 <a href="/articles/new"> Create New Article </a>

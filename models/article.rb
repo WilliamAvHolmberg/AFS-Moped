@@ -8,8 +8,8 @@ class Article
   property :created_at,                       DateTime  # A DateTime, for any date you might like.
   property :list_price,                       Integer   # The suggested "retail" price that will be shown to our customers
   property :net_price,                        Integer   # The final charge we payed for the article
+  property :description,                      Text      # Description of the article
   ## TOdo
-  # => Description of the article
   # => Supplier
   # => Category
   # => Part
