@@ -1,0 +1,6 @@
+h1 List of all our parts
+
+- if !@parts.nil?
+  - @parts.each do |part|
+    p <a href="/parts/#{part.id}"> #{part.name} </a>
+h3 <a href="/parts/new"> Create New part </a>

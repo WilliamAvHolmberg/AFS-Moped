@@ -1,0 +1,6 @@
+h1 List of all our constructions
+
+- if !@constructions.nil?
+  - @constructions.each do |construction|
+    p <a href="/constructions/#{construction.id}"> #{construction.name} </a>
+h3 <a href="/constructions/new"> Create New construction </a>

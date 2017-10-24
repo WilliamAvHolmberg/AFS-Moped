@@ -1,0 +1,30 @@
+- if @part.nil?
+  h1 Oops, part does not Exist
+- else
+h1= @part.name
+div.parent_parts
+  h2 Parent Parts:
+  - if @part.parent_parts.length == 0 && @constructions.length == 0
+    p No main parts linked
+  - else
+    - @part.parent_parts.each do |parent_part|
+      p
+        a href="/parts/#{parent_part.id}"=parent_part.name
+    - @constructions.each do |construction|
+      p
+        a href="/constructions/#{construction.id}"=construction.name
+div.child_parts
+  h2 child_parts:
+  - if @part.child_parts.length == 0
+    p No child parts linked
+  - else
+    - @part.child_parts.each do |child|
+      p
+        a href="/parts/#{child.id}"=child.name
+      - if child.child_parts.length > 0
+        - child.child_parts.each do |child2|
+          p
+            a href="/parts/#{child2.id}"=child2.name
+
+p <a href="/parts">back to parts index</a>
+p <a href="/parts/#{@part.id}/edit">edit this part</a>

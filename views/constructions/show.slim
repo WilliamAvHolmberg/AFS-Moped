@@ -1,0 +1,30 @@
+- if @construction.nil?
+  h1 Oops, construction does not Exist
+- else
+h1= @construction.name
+div.parts
+  h2 Main Parts:
+  - if @construction.parts.length == 0
+    p No parts linked
+  - else
+    - @construction.main_parts.each do |part|
+      ul
+        li
+          a href="/parts/#{part.id}"=part.name
+        - if part.child_parts.length > 0
+          - part.child_parts.each do |child_part|
+            ul
+              li
+                a href="/parts/#{child_part.id}"=child_part.name
+  h2 All Parts:
+  - if @construction.parts.length == 0
+    p No parts linked
+  - else
+    - @construction.get_all_parts.each do |part|
+      p
+        a href="/parts/#{part.id}"=part.name
+
+
+
+p <a href="/constructions">back to constructions index</a>
+p <a href="/constructions/#{@construction.id}/edit">edit this construction</a>

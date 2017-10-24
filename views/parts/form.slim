@@ -1,0 +1,6 @@
+label for="Name" Name
+input#title type="text" name="part[name]" value="#{@part.name}"
+- if !@parts.nil? && @parts.length > 0
+  - @parts.each do |part|
+    h2 = part.name
+input type="submit" value="Save part"
