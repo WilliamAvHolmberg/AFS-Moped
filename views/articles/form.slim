@@ -1,5 +1,23 @@
-label for="Name" Name
-input#title type="text" name="article[name]" value="#{@article.name}"
-label for="description" Description:
-textarea#description name="article[description]" == @article.description
+table
+  tr
+    th Benämning
+    th Pris
+    th Inköpspris
+    th Kategori
+    th.last Beskrivning
+  tr
+    td
+      input#title type="text" name="article[name]" value="#{@article.name}"  required=""
+    td
+      input#title type="integer" name="article[list_price]" value="#{@article.list_price}" required=""
+    td
+      input#title type="integer" name="article[net_price]" value="#{@article.net_price}" required=""
+    td
+      select type="integer" name="article[category_id]"
+        option value="#{@article.category_id}" #{@article.category.name}
+        - @categories.each do |category|
+          option value="#{category.id}" #{category.name}
+        end
+    td
+      textarea#description name="article[description]" == @article.description
 input type="submit" value="Save Article"

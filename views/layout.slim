@@ -1,19 +1,20 @@
 doctype html
 html lang="en"
   head
-    title== @title || "Songs By Sinatra"
+    title== @title || "Wille Bygger Moppar"
     meta charset="utf-8"
-    link rel="stylesheet" href="/styles.css"
+    link rel="stylesheet" type="text/css" href="/css/styles.css"
+    link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"
   body
     header
       nav
         ul
           li
-          a href="/" Home
+          a.button href="/articles" Artiklar
           li
-          a href="/articles" Articles
+          a.button href="/categories" Kategorier
           li
-          a href="/constructions" Constructions
+          a.button href="/constructions" Konstruktioner
           li
-          a href="/parts" Parts
+          a.button href="/parts" Delar
   == yield

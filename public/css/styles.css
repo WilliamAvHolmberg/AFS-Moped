@@ -1,3 +1,97 @@
-nav a.current {
-  background: lighten(red, 5%);
+body {
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    position: relative;
+    display:block;
+    font-weight: 200;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+nav {
+  display:block;
+  width: 100%;
+  height: 125px;
+}
+nav ul {
+  width: 70%;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+a {
+  float: left;
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+}
+a.button {
+  font-size: 30px;
+  margin: 10px;
+}
+
+
+
+table {
+  border: 1px solid black;
+  border-spacing: 0px;
+}
+
+table th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+table .last {
+  border-right: none;
+}
+
+table td {
+  padding: 5px;
+}
+
+
+
+tr.category_name a {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+tr.articles td {
+  border-right: 1px solid black;
+}
+
+tr.articles td.last {
+  border-right: none;
+}
+
+
+tr.constructions  td{
+    border-right: 1px solid black;
+}
+
+td.last {
+  border-right: none;
+}
+
+a.center {
+  display: block;
+  text-align: center;
+}
+
+
+
+
+span.description {
+  display:block;
+  max-width: 300px;
+  max-height: 100px;
+  overflow: scroll;
+  word-wrap: break-word;
 }

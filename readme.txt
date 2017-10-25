@@ -1,45 +1,45 @@
-partsgit init
+categoriesgit init
 git add . || git add filename1
 git commit -m 'pure rack app' || git commit -a - m "message"
 git push heroku master
 
 
-#skeleton for new part
+#skeleton for new category
 
-get '/parts' do
-  @parts = part.all
-  slim :"parts/list"
+get '/categories' do
+  @categories = category.all
+  slim :"categories/list"
 end
 
-get '/parts/new' do
-  @part = part.new
-  slim :"parts/new"
+get '/categories/new' do
+  @category = category.new
+  slim :"categories/new"
 end
 
-get '/parts/:id' do |id|
-  @part = part.get(id)
-  slim :"parts/show"
+get '/categories/:id' do |id|
+  @category = category.get(id)
+  slim :"categories/show"
 end
 
-post '/parts/new' do
-  part = part.create(params[:part])
-  redirect to "/parts/#{part.id}"
+post '/categories/new' do
+  category = category.create(params[:category])
+  redirect to "/categories/#{category.id}"
 end
 
-get '/parts/:id/edit' do |id|
-  @part = part.get(id)
-  slim :"parts/edit"
+get '/categories/:id/edit' do |id|
+  @category = category.get(id)
+  slim :"categories/edit"
 end
 
-post '/parts:id/update' do |id|
-  part = part.get(params[:id])
-  part.update(params[:part])
-  redirect to "/parts/#{part.id}"
+post '/categories:id/update' do |id|
+  category = category.get(params[:id])
+  category.update(params[:category])
+  redirect to "/categories/#{category.id}"
 end
 
-post '/parts/:id/delete' do |id|
-  part.get(id).destroy
-  redirect to '/parts'
+post '/categories/:id/delete' do |id|
+  category.get(id).destroy
+  redirect to '/categories'
 end
 
 

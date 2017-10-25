@@ -1,6 +1,23 @@
 - if @article.nil?
-  h1 Oops, Article does not Exist
+  h1 Artikeln finns inte.
 - else
 h1= @article.name
-p <a href="/articles">back to articles index</a>
-p <a href="/articles/#{@article.id}/edit">edit this article</a>
+table.show_article
+  tr
+    th Artikelnummer
+    th Benämning
+    th Pris
+    th Inköpspris
+    th Beskrivning
+  tr
+    td
+      a = @article.article_number
+    td
+      a = @article.name
+    td
+      a.center = @article.list_price
+    td
+      a.center = @article.net_price
+    td
+      span.description = @article.description
+p <a href="/articles/#{@article.id}/edit">Redigera Artikel</a>

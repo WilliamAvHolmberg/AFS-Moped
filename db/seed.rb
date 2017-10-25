@@ -1,12 +1,17 @@
 class Seeder
   def self.seed!
+    self.category
     self.article
     self.part
     self.construction
   end
 
+  def self.category
+    Category.create(:name => "Övrigt")
+  end
+
   def self.article
-    Article.create(:name => "Lifan", :created_at => Time.now)
+    Article.create(:category => Category.first_or_create(:name => "Motor"), :name => "Lifan", :created_at => Time.now)
   end
 
   def self.part
@@ -21,9 +26,6 @@ class Seeder
     bakhjul = Part.create(:name => "Bakhjul")
     sadel.link(bakdel)
     bakhjul.link(bakdel)
-
-
-
 
   end
 

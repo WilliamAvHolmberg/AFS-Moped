@@ -1,6 +1,25 @@
-h1 List of all our Articles
+h1 ARTIKLAR
+table
+  tr
+    th Kategori
+    th Benämning
+    th Pris
+    th.last Beskrivning
 
-- if !@articles.nil?
-  - @articles.each do |article|
-    p <a href="/articles/#{article.id}"> #{article.name} </a>
-h3 <a href="/articles/new"> Create New Article </a>
+
+    - if !@categories.nil?
+      - @categories.each do |category|
+
+        - category.articles.each do |article|
+          tr.articles
+            td
+              a href="/articles/#{article.id}" #{article.category.name}
+            td
+              a href="/articles/#{article.id}" #{article.name}
+            td
+              a href="/articles/#{article.id}" #{article.list_price}
+            td.last
+              span.description href="/articles/#{article.id}" #{article.description}
+
+
+h3 <a href="/articles/new"> Lägg till ny Artikel </a>

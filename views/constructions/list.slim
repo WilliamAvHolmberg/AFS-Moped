@@ -1,6 +1,14 @@
-h1 List of all our constructions
-
+h1 Konstruktioner
+img src="http://localhost:9292/img/flakmoped_1_inneh%C3%A5ll.jpg"
 - if !@constructions.nil?
-  - @constructions.each do |construction|
-    p <a href="/constructions/#{construction.id}"> #{construction.name} </a>
-h3 <a href="/constructions/new"> Create New construction </a>
+  table
+    tr
+      th Namn
+      th Pris
+    - @constructions.each do |construction|
+      tr.constructions
+        td
+          a href="/constructions/#{construction.id}" #{construction.name}
+        td.last
+          a "Okänt i nuläget"
+h3 <a href="/constructions/new"> Skapa ny konstruktion </a>

@@ -1,6 +1,6 @@
-h1 Edit An Existing Article
-form method="POST" action="/articles/update"
+h1 = "Redigera: #{@article.name}"
+form method="POST" action="/articles/#{@article.id}/update"
   == slim :"articles/form"
 form action="/articles/#{@article.id}/delete" method="POST"
   input type="hidden" name="_method" value="DELETE"
-  input type="submit" value="delete this song"
+  input type="submit" value="Radera Artikel"

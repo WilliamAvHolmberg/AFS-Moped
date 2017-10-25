@@ -1,0 +1,15 @@
+h1 KATEGORIER
+table
+  tr
+    th
+      a Namn:
+
+
+  - if !@categories.nil?
+  - @categories.each do |category|
+    tr.category_name
+      td
+        a href="/categories/#{category.id}"= category.name
+
+
+h3 <a href="/categories/new"> Skapa ny Kategori </a>
