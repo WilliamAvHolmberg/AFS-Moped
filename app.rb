@@ -56,6 +56,10 @@ class App < Sinatra::Base
     slim :"constructions/new"
   end
 
+  get '/constructions/:id' do |id|
+    redirect "/constructions/#{id}/parts/all"
+  end
+
 
 
   get '/constructions/:id/parts/:part' do |id,part|
