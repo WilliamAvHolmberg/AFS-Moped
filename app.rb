@@ -12,6 +12,7 @@ class App < Sinatra::Base
 
   get '/articles/new' do
     @categories = Category.all
+    @suppliers = Supplier.all
     @article = Article.new
     slim :"articles/new"
   end
@@ -29,6 +30,7 @@ class App < Sinatra::Base
 
   get '/articles/:id/edit' do |id|
     @categories = Category.all
+    @suppliers = Supplier.all
     @article = Article.get(id)
     slim :"articles/edit"
   end

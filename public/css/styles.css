@@ -35,6 +35,10 @@ a.button {
   margin: 10px;
 }
 
+a.underline {
+  text-decoration: underline;
+}
+
 
 
 table {

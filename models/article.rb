@@ -8,6 +8,7 @@ class Article
   property :list_price,      Integer   # The suggested "retail" price that will be shown to our customers
   property :net_price,       Integer   # The final charge we payed for the article (exluding vat)
   property :description,     Text      # Description of the article
+  property :img_src,         String
   ## TOdo
   # => Supplier
   # => Category

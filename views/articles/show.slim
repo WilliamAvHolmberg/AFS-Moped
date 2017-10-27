@@ -8,6 +8,7 @@ table.show_article
     th Benämning
     th Pris
     th Inköpspris
+    th Leverantör
     th Beskrivning
   tr
     td
@@ -18,6 +19,8 @@ table.show_article
       a.center = @article.list_price
     td
       a.center = @article.net_price
+    td
+      a.underline href="/suppliers/#{@article.supplier.id}" #{@article.supplier.name}
     td
       span.description = @article.description
 p <a href="/articles/#{@article.id}/edit">Redigera Artikel</a>

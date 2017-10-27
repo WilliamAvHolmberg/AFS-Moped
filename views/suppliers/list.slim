@@ -1,15 +1,15 @@
-h1 KATEGORIER
+h1 LEVERANTÖRER
 table
   tr
     th
       a Namn:
 
 
-  - if !@categories.nil?
-  - @categories.each do |category|
-    tr.category_name
+  - if !@suppliers.nil?
+  - @suppliers.each do |supplier|
+    tr.supplier_name
       td
-        a href="/categories/#{category.id}"= category.name
+        a href="/suppliers/#{supplier.id}"= supplier.name
 
 
-h3 <a href="/categories/new"> Skapa ny Kategori </a>
+h3 <a href="/suppliers/new"> Lägg till Leverantör </a>

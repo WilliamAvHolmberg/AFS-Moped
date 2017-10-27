@@ -4,7 +4,9 @@ table
     th Pris
     th Inköpspris
     th Kategori
-    th.last Beskrivning
+    th Leverantör
+    th Beskrivning
+    th.last Bildlänk
   tr
     td
       input#title type="text" name="article[name]" value="#{@article.name}"  required=""
@@ -13,11 +15,21 @@ table
     td
       input#title type="integer" name="article[net_price]" value="#{@article.net_price}" required=""
     td
-      select type="integer" name="article[category_id]"
+      select type="integer" name="article[category_id]" required=""
         option value="#{@article.category_id}" #{@article.category.name}
         - @categories.each do |category|
           option value="#{category.id}" #{category.name}
-        end
+        option value=""
+    td
+      select type="integer" name="article[supplier_id]" required=""
+        - if @suppliers.length > 0
+          - if !@article.supplier.nil?
+            option value="#{@article.supplier_id}" #{@article.supplier.name}
+          - @suppliers.each do |supplier|
+            option value="#{supplier.id}" #{supplier.name}
+          end
     td
       textarea#description name="article[description]" == @article.description
+    td
+      input#title type="text" name="article[img_src]" value="#{@article.img_src}"
 input type="submit" value="Save Article"
