@@ -1,6 +1,6 @@
 h1 Edit An Existing construction
-form method="POST" action="/constructions/update"
+form method="POST" action="/constructions/#{@construction.id}/update"
   == slim :"constructions/form"
 form action="/constructions/#{@construction.id}/delete" method="POST"
   input type="hidden" name="_method" value="DELETE"
-  input type="submit" value="delete this song"
+  input type="submit" value="Radera konstruktion"

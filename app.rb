@@ -1,7 +1,7 @@
 class App < Sinatra::Base
 
   get '/' do
-    "Helloooo"
+    slim :index
   end
 
   get '/articles' do
@@ -70,7 +70,7 @@ class App < Sinatra::Base
     slim :"constructions/edit"
   end
 
-  post '/constructions:id/update' do |id|
+  post '/constructions/:id/update' do |id|
     construction = Construction.get(params[:id])
     construction.update(params[:construction])
     redirect to "/constructions/#{construction.id}"

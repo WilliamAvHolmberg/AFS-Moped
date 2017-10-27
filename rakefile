@@ -11,7 +11,7 @@ namespace :db do
 
   # Task for populating the database from db/seed.rb
   # rake db:seed
-  task :seed do
+  task :auto_migrate do
 
     puts "*******************"
     puts "* Seeding database, this means completely rewriting the tables *"
