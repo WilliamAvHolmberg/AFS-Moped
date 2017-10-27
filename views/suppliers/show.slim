@@ -1,0 +1,22 @@
+- if @category.nil?
+  h1 Kategorin finns inte.
+- else
+  h1 Kategori: #{@category.name}
+  table
+    tr
+      th Art.nr
+      th Benämning
+      th Pris
+      th.last Beskrivning
+    - @category.articles.each do |article|
+      tr
+        td
+          a href="/articles/#{article.id}" #{article.article_number}
+        td
+          a href="/articles/#{article.id}" #{article.name}
+        td
+          a href="/articles/#{article.id}" #{article.list_price}
+        td
+          span.description href="/articles/#{article.id}" #{article.description}
+
+p <a href="/categories/#{@category.id}/edit">Redigera Kategori</a>

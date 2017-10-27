@@ -1,0 +1,6 @@
+h1 = "Redigera: #{@category.name}"
+form method="POST" action="/categories/#{@category.id}/update"
+  == slim :"categories/form"
+form action="/categories/#{@category.id}/delete" method="POST"
+  input type="hidden" name="_method" value="DELETE"
+  input type="submit" value="Radera Kategori"

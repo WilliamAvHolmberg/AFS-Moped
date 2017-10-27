@@ -11,7 +11,10 @@ configure :development do
   # Enable logging to console
   #DataMapper::Logger.new($stdout, :debug)
   # Use SQLite
-  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-dev.sqlite")
+  #DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-dev.sqlite")
+
+  #always use postgres db (unless no connection)
+  DataMapper.setup(:default, 'postgres://qqpsofimledkok:aedbc74836fdc73f91e8cb6c1428ab94eec89ca97b2dce6853c5451c32848934@ec2-54-243-47-252.compute-1.amazonaws.com:5432/d8vsoa0f7ujj34')
 
   # Enable pretty printing of Slim-generated HTML (for debugging)
   Slim::Engine.set_options pretty: true, sort_attrs: false

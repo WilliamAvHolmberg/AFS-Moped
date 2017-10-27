@@ -1,46 +1,47 @@
-categoriesgit init
+suppliersgit init
 git add . || git add filename1
 git commit -m 'pure rack app' || git commit -a - m "message"
 git push heroku master
 
 
-#skeleton for new category
+#skeleton for new supplier
 
-get '/categories' do
-  @categories = category.all
-  slim :"categories/list"
+get '/suppliers' do
+  @suppliers = Supplier.all
+  slim :"suppliers/list"
 end
 
-get '/categories/new' do
-  @category = category.new
-  slim :"categories/new"
+get '/suppliers/new' do
+  @supplier = Supplier.new
+  slim :"suppliers/new"
 end
 
-get '/categories/:id' do |id|
-  @category = category.get(id)
-  slim :"categories/show"
+get '/suppliers/:id' do |id|
+  @supplier = Supplier.get(id)
+  slim :"suppliers/show"
 end
 
-post '/categories/new' do
-  category = category.create(params[:category])
-  redirect to "/categories/#{category.id}"
+post '/suppliers/new' do
+  supplier = Supplier.create(params[:supplier])
+  redirect to "/suppliers/#{supplier.id}"
 end
 
-get '/categories/:id/edit' do |id|
-  @category = category.get(id)
-  slim :"categories/edit"
+get '/suppliers/:id/edit' do |id|
+  @supplier = Supplier.get(id)
+  slim :"suppliers/edit"
 end
 
-post '/categories:id/update' do |id|
-  category = category.get(params[:id])
-  category.update(params[:category])
-  redirect to "/categories/#{category.id}"
+post '/suppliers/:id/update' do |id|
+  supplier = Supplier.get(params[:id])
+  supplier.update(params[:supplier])
+  redirect to "/suppliers/#{supplier.id}"
 end
 
-post '/categories/:id/delete' do |id|
-  category.get(id).destroy
-  redirect to '/categories'
+post '/suppliers/:id/delete' do |id|
+  Supplier.get(id).destroy
+  redirect to '/suppliers'
 end
+
 
 
 rerun --ignore "*.{slim,js,css,coffee}" "rackup --host 0.0.0.0"

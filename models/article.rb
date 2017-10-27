@@ -6,7 +6,7 @@ class Article
   property :name,            String    # Name of the Article
   property :created_at,      DateTime  # A DateTime, for any date you might like.
   property :list_price,      Integer   # The suggested "retail" price that will be shown to our customers
-  property :net_price,       Integer   # The final charge we payed for the article
+  property :net_price,       Integer   # The final charge we payed for the article (exluding vat)
   property :description,     Text      # Description of the article
   ## TOdo
   # => Supplier
@@ -14,7 +14,8 @@ class Article
   # => Part
 
   belongs_to :category
-  
+  belongs_to :supplier
+
   def initialize(attributes={},&block)
     super(attributes,&block)
     # if no category is specified, set category to "övrigt"
