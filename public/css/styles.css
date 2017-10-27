@@ -24,8 +24,7 @@ nav ul li {
   list-style-type: none;
 }
 
-a {
-  float: left;
+a{
   color: black;
   font-size: 15px;
   text-decoration: none;
@@ -33,6 +32,7 @@ a {
 a.button {
   font-size: 30px;
   margin: 10px;
+  float: left;
 }
 
 a.underline {

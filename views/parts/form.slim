@@ -1,6 +1,12 @@
 label for="Name" Name
 input#title type="text" name="part[name]" value="#{@part.name}"
-- if !@parts.nil? && @parts.length > 0
-  - @parts.each do |part|
-    h2 = part.name
+select type="integer" name="part[construction_id]" required=""
+  - if !@part.nil? && !@part.construction.nil?
+    option value="#{@part.construction.id}" #{@part.construction.name}
+  - @constructions.each do |construction|
+    option value="#{construction.id}" #{construction.name}
+select type="integer" name="parent_id"
+  - if !@part.nil? && !@parts.nil?
+    - @parts.each do |part|
+      option value="#{part.id}" #{part.name}
 input type="submit" value="Save part"

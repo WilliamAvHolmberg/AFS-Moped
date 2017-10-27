@@ -1,4 +1,4 @@
-h1 Konstruktioner
+rh1 Konstruktioner
 - if !@constructions.nil?
   table
     tr
@@ -7,7 +7,7 @@ h1 Konstruktioner
     - @constructions.each do |construction|
       tr.constructions
         td
-          a href="/constructions/#{construction.id}" #{construction.name}
+          a href="/constructions/#{construction.id}/parts/all" #{construction.name}
         td.last
           a "Okänt i nuläget"
 h3 <a href="/constructions/new"> Skapa ny konstruktion </a>

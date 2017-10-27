@@ -1,6 +1,17 @@
-h1 List of all our parts
+h1 Delar
+table
+  tr
+    th Namn
+    th.last Konstruktion
 
-- if !@parts.nil?
-  - @parts.each do |part|
-    p <a href="/parts/#{part.id}"> #{part.name} </a>
-h3 <a href="/parts/new"> Create New part </a>
+
+    - if !@parts.nil?
+      - @parts.each do |part|
+        tr
+          td
+            a.underline href="/parts/#{part.id}" #{part.name}
+          td
+            a.underline href="/constructions/#{part.construction.id}" #{part.construction.name}
+
+
+h3 <a href="/parts/new"> Lägg till ny Del </a>

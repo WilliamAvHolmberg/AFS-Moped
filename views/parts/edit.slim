@@ -1,5 +1,5 @@
 h1 Edit An Existing part
-form method="POST" action="/parts/update"
+form method="POST" action="/parts/#{@part.id}/update"
   == slim :"parts/form"
 form action="/parts/#{@part.id}/delete" method="POST"
   input type="hidden" name="_method" value="DELETE"

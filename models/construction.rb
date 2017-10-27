@@ -10,17 +10,17 @@ class Construction
   # => total cost...
   # => Parts
   # => Articles
-  has n, :construction_parts
-  has n, :parts, :through => :construction_parts
 
+  has n, :parts
 
   def link(part)
     ConstructionPart.create(:construction => self, :part => part)
   end
 
   def main_parts
-    return self.parts
+    return parts.select { |hash| hash.parent_parts.length == 0 }
   end
+
 
   def get_all_parts
     @all_parts = []
@@ -39,6 +39,15 @@ class Construction
       end
     else
     end
+  end
+
+
+  def remove
+    ConstructionPart.all(:construction => self).destroy
+    Part.all(:construction => self).destroy
+    self.destroy
+    reload
+    self
   end
 
 

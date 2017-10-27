@@ -1,0 +1,13 @@
+form action="/parts/new" method="POST"
+  label for="Name" Name
+  input#title type="text" name="part[name]"
+  select type="integer" name="part[construction_id]" required=""
+      option value="#{@construction.id}" #{@construction.name}
+  select type="integer" name="parent_id"
+    - if !@construction.main_parts.nil?
+      option value="#{@construction.id}" 
+      - @construction.parts.each do |part|
+        option value="#{part.id}" #{part.name}
+
+
+  input type="submit" value="Save part"

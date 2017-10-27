@@ -56,8 +56,18 @@ class App < Sinatra::Base
     slim :"constructions/new"
   end
 
-  get '/constructions/:id' do |id|
+
+
+  get '/constructions/:id/parts/:part' do |id,part|
     @construction = Construction.get(id)
+    if part == "all"
+      @main_parts = @construction.main_parts
+      @title = @construction.name
+    else
+      @main_part = Part.get(part.to_i)
+      @main_parts = @main_part.child_parts
+      @title = @main_part.name
+    end
     slim :"constructions/show"
   end
 
@@ -66,6 +76,7 @@ class App < Sinatra::Base
     puts params[:construction]
     redirect to "/constructions/#{construction.id}"
   end
+
 
   get '/constructions/:id/edit' do |id|
     @construction = Construction.get(id)
@@ -79,9 +90,15 @@ class App < Sinatra::Base
   end
 
   post '/constructions/:id/delete' do |id|
-    Construction.get(id).destroy
+    Construction.get(id).remove
     redirect to '/constructions'
   end
+
+  get '/constructions/:id/parts/:part' do |id, part|
+    @construction = Construction.get(id)
+    slim :"constructions/edit"
+  end
+
 
   get '/parts' do
     @parts = Part.all
@@ -89,6 +106,7 @@ class App < Sinatra::Base
   end
 
   get '/parts/new' do
+    @constructions = Construction.all
     @parts = Part.all
     @part = Part.new
     slim :"parts/new"
@@ -96,29 +114,44 @@ class App < Sinatra::Base
 
   get '/parts/:id' do |id|
     @part = Part.get(id)
-    @constructions = @part.constructions
     slim :"parts/show"
   end
 
   post '/parts/new' do
+    puts params[:part]
     part = Part.create(params[:part])
-    redirect to "/parts/#{part.id}"
+
+    parent_id = params[:parent_id].to_i
+    puts parent_id
+    if !parent_id.nil? && parent_id > 0
+      parent = Part.get(parent_id)
+      part.add_parent(parent)
+    end
+    redirect to "/constructions/#{part.construction.id}"
   end
 
   get '/parts/:id/edit' do |id|
+    @constructions = Construction.all
     @parts = Part.all
     @part = Part.get(id)
     slim :"parts/edit"
   end
 
-  post '/parts:id/update' do |id|
+  post '/parts/:id/update' do |id|
     part = Part.get(params[:id])
     part.update(params[:part])
+    parent_id = params[:parent_id].to_i
+    if !parent_id.nil? && parent_id > 0
+      parent = Part.get(parent_id)
+      part.add_parent(parent)
+    end
     redirect to "/parts/#{part.id}"
   end
 
   post '/parts/:id/delete' do |id|
-    Part.get(id).destroy
+    puts id
+    part = Part.get(id)
+    part.remove
     redirect to '/parts'
   end
 

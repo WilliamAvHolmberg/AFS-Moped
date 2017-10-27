@@ -1,7 +1,13 @@
 - if @construction.nil?
   h1 Oops, construction does not Exist
 - else
-- if !@construction.img_src.nil?
-  img src="#{@construction.img_src}"
-h1= @construction.name
-a href="/constructions/#{@construction.id}/edit" Redigera
+  h1= @title
+  - if !@construction.img_src.nil?
+    img src="#{@construction.img_src}"
+  - if !@main_parts.nil?
+    - @parts = @main_parts
+    == slim :'/constructions/recursive_parts'
+
+  == slim :'/constructions/new_part_form'
+
+  a href="/constructions/#{@construction.id}/edit" Redigera

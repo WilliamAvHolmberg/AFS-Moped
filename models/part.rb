@@ -20,8 +20,8 @@ class Part
   property :name, String, :required => true
 
 
-  has n, :construction_parts
-  has n, :constructions, :through => :construction_parts
+  belongs_to :construction
+
   # If we want to know all the people that John follows, we need to look
   # at every 'Link' where John is a :follower. Knowing these, we know all
   # the people that are :followed by John.
@@ -58,18 +58,21 @@ class Part
     :via     => :child_part
 
   # Follow one or more other people
-  def link(child_parts)
+  def add_parent(child_parts)
     parent_parts.concat(Array(child_parts))
     save
     self
   end
 
   # Unfollow one or more other people
-  def unfollow(child_parts)
-    parent_parts.all(:followed => Array(child_parts)).destroy!
+  def remove
+    child_parts.all.destroy
+    Link.all(:child_part => self).destroy
+    self.destroy
     reload
     self
   end
- 
+
+
 
 end
