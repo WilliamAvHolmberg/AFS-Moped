@@ -31,10 +31,24 @@ class Part
   def get_net_figure
     @price = 0
     part_articles.each do |pa|
-      @price += pa.get_list_figure
+      @price += pa.get_net_figure
     end
     ## + every child part
     return @price
+  end
+
+  def get_part_articles
+    @pas = []
+    part_articles.each do |pa|
+      @pas.push(pa)
+    end
+
+    parts.each do |part|
+      part.part_articles.each do |pa|
+        @pas.push(pa)
+      end
+    end
+    return @pas
   end
 
   def get_articles
