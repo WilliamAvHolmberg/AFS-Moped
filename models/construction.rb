@@ -18,7 +18,7 @@ class Construction
   end
 
   def main_parts
-    return parts.select { |hash| hash.parent_parts.length == 0 }
+    return Part.all(:construction => self, :part_id => nil)
   end
 
 

@@ -65,12 +65,11 @@ class App < Sinatra::Base
   get '/constructions/:id/parts/:part' do |id,part|
     @construction = Construction.get(id)
     if part == "all"
-      puts "all"
       @main_parts = @construction.main_parts
       @title = @construction.name
     else
       @main_part = Part.get(part.to_i)
-      @main_parts = @main_part.child_parts
+      @main_parts = @main_part.parts
       @title = @main_part.name
     end
     slim :"constructions/show"
@@ -125,13 +124,6 @@ class App < Sinatra::Base
   post '/parts/new' do
     puts params[:part]
     part = Part.create(params[:part])
-
-    parent_id = params[:parent_id].to_i
-    puts parent_id
-    if !parent_id.nil? && parent_id > 0
-      parent = Part.get(parent_id)
-      part.add_parent(parent)
-    end
     redirect to "/constructions/#{part.construction.id}"
   end
 
@@ -145,18 +137,14 @@ class App < Sinatra::Base
   post '/parts/:id/update' do |id|
     part = Part.get(params[:id])
     part.update(params[:part])
-    parent_id = params[:parent_id].to_i
-    if !parent_id.nil? && parent_id > 0
-      parent = Part.get(parent_id)
-      part.add_parent(parent)
-    end
     redirect to "/parts/#{part.id}"
   end
 
   post '/parts/:id/delete' do |id|
     puts id
     part = Part.get(id)
-    part.remove
+    part.parts.all.destroy
+    part.destroy
     redirect to '/parts'
   end
 

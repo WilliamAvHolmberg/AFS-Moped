@@ -6,14 +6,12 @@
   h2 = "Tillhör huvuddel:"
   ul
 
-  - if @part.parent_parts.length > 0
-    - @part.parent_parts.each do |parent|
-
+  - if !@part.part.nil?
       li
-        a.underline href="/parts/#{parent.id}" = parent.name
+        a.underline href="/parts/#{@part.part.id}" = @part.part.name
   h2 = "Har underdelar:"
-  - if @part.child_parts.length > 0
-    - @part.child_parts.each do |child|
+  - if @part.parts.length > 0
+    - @part.parts.each do |child|
 
       li
         a.underline href="/parts/#{child.id}" = child.name

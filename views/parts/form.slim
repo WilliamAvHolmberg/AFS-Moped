@@ -5,8 +5,9 @@ select type="integer" name="part[construction_id]" required=""
     option value="#{@part.construction.id}" #{@part.construction.name}
   - @constructions.each do |construction|
     option value="#{construction.id}" #{construction.name}
-select type="integer" name="parent_id"
+select type="integer" name="part[part_id]"
   - if !@part.nil? && !@parts.nil?
+    option  disabled="" selected="" value="" -- Välj del
     - @parts.each do |part|
       option value="#{part.id}" #{part.name}
 input type="submit" value="Save part"

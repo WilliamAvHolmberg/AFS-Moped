@@ -2,6 +2,6 @@ ul
   - @parts.each do |part|
     li
       input type="checkbox" name="test" value="test" =part.name
-    - if part.child_parts.length > 0
-      - @parts = part.child_parts
+    - if part.parts.length > 0
+      - @parts = part.parts
       == slim :'/constructions/recursive_edit_parts'

@@ -2,8 +2,8 @@ class Seeder
   def self.seed!
     self.category
     self.article
-    self.part
     self.construction
+    self.part
   end
 
   def self.category
@@ -13,12 +13,10 @@ class Seeder
   def self.article
   end
 
-  def self.part
-
+  def self.construction
   end
 
-  def self.construction
-
+  def self.part
   end
 
 end

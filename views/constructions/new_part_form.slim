@@ -3,10 +3,10 @@ form action="/parts/new" method="POST"
   input#title type="text" name="part[name]"
   select type="integer" name="part[construction_id]" required=""
       option value="#{@construction.id}" #{@construction.name}
-  select type="integer" name="parent_id"
-    - if !@construction.main_parts.nil?
-      option value="#{@construction.id}" 
-      - @construction.parts.each do |part|
+  select type="integer" name="part[part_id]"
+    - if !@construction.parts.nil?
+      option  disabled="" selected="" value="" -- Välj del
+      - @parts.each do |part|
         option value="#{part.id}" #{part.name}
 
 
