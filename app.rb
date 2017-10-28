@@ -65,6 +65,7 @@ class App < Sinatra::Base
   get '/constructions/:id/parts/:part' do |id,part|
     @construction = Construction.get(id)
     if part == "all"
+      puts "all"
       @main_parts = @construction.main_parts
       @title = @construction.name
     else
