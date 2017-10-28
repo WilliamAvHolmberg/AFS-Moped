@@ -1,0 +1,21 @@
+h1 ARTIKLAR
+table
+  tr
+    th Benämning
+    th Pris
+    th Antal
+    th.last Belopp
+
+  - @part.part_articles.each do |part_article|
+    tr.articles
+      td
+        a href="/articles/#{part_article.article.id}" #{part_article.article.name}
+      td
+        a href="/articles/#{part_article.article.id}" #{part_article.article.list_price}
+      td
+        a  #{part_article.amount}
+      td.last
+        a  #{part_article.amount* part_article.article.list_price}
+
+
+h3 <a href="/articles/new"> Lägg till ny Artikel </a>

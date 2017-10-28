@@ -46,6 +46,10 @@ class App < Sinatra::Base
     redirect to '/articles'
   end
 
+
+
+  ###Constructions
+
   get '/constructions' do
     @constructions = Construction.all
     slim :"constructions/list"
@@ -60,27 +64,16 @@ class App < Sinatra::Base
     redirect "/constructions/#{id}/parts/all"
   end
 
-
-
-  get '/constructions/:id/parts/:part' do |id,part|
-    @construction = Construction.get(id)
-    if part == "all"
-      @main_parts = @construction.main_parts
-      @title = @construction.name
-    else
-      @main_part = Part.get(part.to_i)
-      @main_parts = @main_part.parts
-      @title = @main_part.name
-    end
-    slim :"constructions/show"
-  end
-
   post '/constructions/new' do
     construction = Construction.create(params[:construction])
     puts params[:construction]
     redirect to "/constructions/#{construction.id}"
   end
 
+  post '/constructions/:id/delete' do |id|
+    Construction.get(id).remove
+    redirect to '/constructions'
+  end
 
   get '/constructions/:id/edit' do |id|
     @construction = Construction.get(id)
@@ -98,55 +91,86 @@ class App < Sinatra::Base
     redirect to '/constructions'
   end
 
-  get '/constructions/:id/parts/:part' do |id, part|
+  get '/construction/:id/parts/new' do |id|
     @construction = Construction.get(id)
-    slim :"constructions/edit"
-  end
-
-
-  get '/parts' do
-    @parts = Part.all
-    slim :"parts/list"
-  end
-
-  get '/parts/new' do
-    @constructions = Construction.all
     @parts = Part.all
     @part = Part.new
     slim :"parts/new"
   end
 
-  get '/parts/:id' do |id|
-    @part = Part.get(id)
-    slim :"parts/show"
-  end
-
-  post '/parts/new' do
+  post '/constructions/:id/parts/new' do |id|
     puts params[:part]
     part = Part.create(params[:part])
     redirect to "/constructions/#{part.construction.id}"
   end
 
-  get '/parts/:id/edit' do |id|
+  get '/constructions/:id/parts/all' do |id|
+    @construction = Construction.get(id)
+    @main_part = @construction
+    @main_parts = @construction.main_parts
+    @title = @construction.name
+    slim :"constructions/show"
+  end
+
+
+  post '/constructions/:id/parts/delete' do
+    if !params[:part_id].nil?
+     params[:part_id].each do |part_id|
+       part = Part.get(part_id)
+       if !part.nil?
+         PartArticle.all(:part => part).destroy
+         part.parts.all.destroy
+         part.destroy
+       end
+     end
+   end
+   redirect back
+  end
+
+  get '/constructions/:id/parts/:part' do |id, part|
+    @articles = Article.all
+    @construction = Construction.get(id)
+    @main_part = Part.get(part)
+    @main_parts = @main_part.parts
+    @title = @construction.name
+    if part == "all"
+    slim :"constructions/show"
+    else
+    slim :"constructions/parts/show"
+    end
+  end
+
+  get '/constructions/:id/parts/:part/edit' do |id, part|
     @constructions = Construction.all
     @parts = Part.all
     @part = Part.get(id)
-    slim :"parts/edit"
+    @articles = Article.all
+    slim :"constructions/parts/edit"
   end
 
-  post '/parts/:id/update' do |id|
+  post '/constructions/:id/parts/:part/update' do |id,part|
     part = Part.get(params[:id])
     part.update(params[:part])
     redirect to "/parts/#{part.id}"
   end
 
-  post '/parts/:id/delete' do |id|
+  post '/constructions/:id/parts/:part/delete' do |id,part|
     puts id
     part = Part.get(id)
+    PartArticle.all(:part => part).destroy
     part.parts.all.destroy
     part.destroy
     redirect to '/parts'
   end
+
+  post '/constructions/:id/parts/:part_id/articles/new' do |id, part_id|
+    PartArticle.create(:part_id => part_id, :article_id => params[:article_id], :amount => params[:amount])
+    redirect back
+  end
+
+
+  ##################
+  ####CATEGORIES####
 
   get '/categories' do
     @categories = Category.all

@@ -1,16 +1,11 @@
 h1 Redigera befintlig Konstruktion
 form method="POST" action="/constructions/#{@construction.id}/update"
   == slim :"constructions/form"
+- @parts = @construction.main_parts
+form method="POST" action="/constructions/#{@construction.id}/parts/delete"
+  == slim :"constructions/edit_part_structure"
+  input type="submit" value="Radera delar"
+
 form action="/constructions/#{@construction.id}/delete" method="POST"
   input type="hidden" name="_method" value="DELETE"
   input type="submit" value="Radera konstruktion"
-
-
-form method="POST" action="/parts/update"
-  input type="submit" value="Radera markerade delar" form="test"
-- if !@construction.main_parts.nil?
-  - @parts = @construction.main_parts
-  == slim :'/constructions/recursive_edit_parts'
-  input type="submit" value="Radera markerade delar" form="test"
-
-== slim :'/constructions/new_part_form'

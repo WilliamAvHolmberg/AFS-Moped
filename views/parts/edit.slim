@@ -1,6 +1,7 @@
 h1 Edit An Existing part
 form method="POST" action="/parts/#{@part.id}/update"
   == slim :"parts/form"
+== slim :'/parts/new_article'
 form action="/parts/#{@part.id}/delete" method="POST"
   input type="hidden" name="_method" value="DELETE"
   input type="submit" value="delete this song"

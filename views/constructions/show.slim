@@ -1,13 +1,15 @@
 - if @construction.nil?
   h1 Oops, construction does not Exist
 - else
-  h1= @title
-  - if !@construction.img_src.nil?
-    img src="#{@construction.img_src}"
+  h1
+    a.underline href="/constructions/#{@construction.id}""Konstruktion: #{@construction.name}"
+  - if !@main_part.nil?
+    h1 Huvuddel: #{@main_part.name}
+
   - if !@main_parts.nil?
     - @parts = @main_parts
-    == slim :'/constructions/recursive_parts'
+    == slim :'/constructions/parts/list'
 
-  == slim :'/constructions/new_part_form'
+  == slim :'/constructions/parts/new'
 
-  a href="/constructions/#{@construction.id}/edit" Redigera
+a href="/constructions/#{@construction.id}/edit" Redigera Konstruktion

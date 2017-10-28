@@ -1,4 +1,4 @@
-form action="/parts/new" method="POST"
+form action="/constructions/#{@construction.id}/parts/new" method="POST"
   label for="Name" Name
   input#title type="text" name="part[name]"
   select type="integer" name="part[construction_id]" required=""
@@ -6,8 +6,10 @@ form action="/parts/new" method="POST"
   select type="integer" name="part[part_id]"
     - if !@construction.parts.nil?
       option  disabled="" selected="" value="" -- Välj del
-      - @parts.each do |part|
+      - @construction.parts.each do |part|
         option value="#{part.id}" #{part.name}
+  label for="img_src" Bildlänk
+  input#img_src type="text" name="part[img_src]"
 
 
   input type="submit" value="Save part"

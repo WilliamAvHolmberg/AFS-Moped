@@ -2,21 +2,8 @@
   h1 Oops, part does not Exist
 - else
 
-  h1 = "Part:#{@part.name}"
-  h2 = "Tillhör huvuddel:"
-  ul
+  h1 = "Part:#{@part.name}.......price:#{@part.get_list_figure}"
+  - if @part.part_articles.length > 0
+    == slim :'/parts/show_articles'
 
-  - if !@part.part.nil?
-      li
-        a.underline href="/parts/#{@part.part.id}" = @part.part.name
-  h2 = "Har underdelar:"
-  - if @part.parts.length > 0
-    - @part.parts.each do |child|
-
-      li
-        a.underline href="/parts/#{child.id}" = child.name
-
-
-
-p <a href="/parts">back to parts index</a>
-p <a href="/parts/#{@part.id}/edit">edit this part</a>
+p <a href="/parts/#{@part.id}/edit">Redigera den här delen</a>

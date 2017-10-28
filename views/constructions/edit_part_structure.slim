@@ -1,0 +1,7 @@
+ul
+  - @parts.each do |part|
+    li
+      input type="checkbox" name="part_id[]" value="#{part.id}" =part.name
+    - if part.parts.length > 0
+      - @parts = part.parts
+      == slim :'/constructions/edit_part_structure'

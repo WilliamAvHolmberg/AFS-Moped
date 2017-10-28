@@ -1,0 +1,20 @@
+- if @construction.nil?
+  h1 Oops, construction does not Exist
+- else
+  h1
+    a.underline href="/constructions/#{@construction.id}""Konstruktion: #{@construction.name}"
+  - if !@main_part.nil?
+    h1 Huvuddel: #{@main_part.name}
+
+  - if !@main_parts.nil?
+    - @parts = @main_parts
+    == slim :'/constructions/parts/list'
+
+  == slim :'/constructions/parts/new'
+  h1 = "Part:#{@main_part.name}.......price:#{@main_part.get_list_figure}"
+  - if @main_part.part_articles.length > 0
+    == slim :'/constructions/parts/show_articles'
+  == slim :'/constructions/parts/new_article'
+  h1
+    a href="/constructions/#{@construction.id}/parts/#{@main_part.id}/edit" Redigera Huvuddel
+  a href="/constructions/#{@construction.id}/edit" Redigera Konstruktion

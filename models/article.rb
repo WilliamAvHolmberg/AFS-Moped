@@ -16,6 +16,7 @@ class Article
 
   belongs_to :category
   belongs_to :supplier
+  has n, :part_articles
 
   def initialize(attributes={},&block)
     super(attributes,&block)

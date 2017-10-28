@@ -1,0 +1,16 @@
+h1 Ny artikel
+form method="POST" action="/constructions/#{@construction.id}/parts/#{@main_part.id}/articles/new"
+  table
+    tr
+      th Artikel
+      th Antal
+    form
+    tr.articles
+      td
+        select type="integer" name="article_id" required=""
+          - @articles.each do |article|
+              option value="#{article.id}"= article.name
+      td.last
+        input type="integer" name="amount" required=""
+
+  input type="submit" value="Submits"

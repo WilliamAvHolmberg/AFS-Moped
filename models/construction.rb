@@ -41,6 +41,17 @@ class Construction
     end
   end
 
+  def get_all_articles
+    @articles = []
+    main_parts.each do |part|
+      part.get_articles.each do |article|
+        puts "asd:#{article.name}"
+        @articles.push(article)
+      end
+    end
+    return @articles
+  end
+
 
   def remove
     ConstructionPart.all(:construction => self).destroy

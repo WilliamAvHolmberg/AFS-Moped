@@ -1,7 +1,0 @@
-ul
-  - @parts.each do |part|
-    li
-      a.underline href="../parts/#{part.id}"=part.name
-    - if part.parts.length > 0
-      - @parts = part.parts
-      == slim :'/constructions/recursive_parts'

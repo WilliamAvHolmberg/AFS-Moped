@@ -1,0 +1,18 @@
+h1 ARTIKLAR
+table
+  tr
+    th Benämning
+    th Pris
+    th Antal
+    th.last Belopp
+
+  - @main_part.part_articles.each do |part_article|
+    tr.articles
+      td
+        a href="/articles/#{part_article.article.id}" #{part_article.article.name}
+      td
+        a href="/articles/#{part_article.article.id}" #{part_article.article.list_price}
+      td
+        a  #{part_article.amount}
+      td.last
+        a  #{part_article.get_list_figure}
