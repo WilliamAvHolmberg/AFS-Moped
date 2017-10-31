@@ -1,7 +1,7 @@
 h1 = @main_part.name
 table
   tr
-    th Bild nr
+    th id
     th Art nr
     th Benämning
     th Pris
@@ -9,8 +9,8 @@ table
     th Belopp
   - @main_part.get_part_articles.each do |part_article|
     tr
-      td okänt
+      td = part_article.article.id
       td = part_article.article.article_number
       td = part_article.article.name
-      td = part_article.article.list_price
+      td = part_article.article.net_price
       td = part_article.amount

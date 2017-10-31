@@ -6,7 +6,7 @@ table
     th Pris
     th Antal
     th Belopp
-  - @main_part.get_part_articles.each do |part_article|
+  - @main_part.part_articles.each do |part_article|
     tr
       td = part_article.article.id
       td = part_article.article.article_number

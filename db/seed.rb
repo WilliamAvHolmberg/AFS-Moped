@@ -41,6 +41,7 @@ class Seeder
     Article.create(:name => "6-kantskruv M5x30 A4 Syrafast", :article_number => "1010503010", :net_price => 1.09, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
 
     Article.create(:name => "6-kantskruv M6x14 A4 Syrafast", :article_number => "1010601410", :net_price => 0.92, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M6x20 A4 Syrafast", :article_number => "1010602010", :net_price => 0.96, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
     Article.create(:name => "6-kantskruv M6x30 A4 Syrafast", :article_number => "1010603010", :net_price => 1.24, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
 
     Article.create(:name => "6-kantskruv M8x22 A4 Syrafast", :article_number => "1010802210", :net_price => 2.35, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
@@ -60,15 +61,15 @@ class Seeder
 
 
     #bakskärm/kedjeskydd
-    Article.create(:name => "Grön bakskärm 1189", :article_number => "11-49-101", :net_price => 360, :supplier => Supplier.first_or_create(:name => "Norscand"))
-    Article.create(:name => "Grönt kedjeskydd 1189", :article_number => "11-48-101", :net_price => 200, :supplier => Supplier.first_or_create(:name => "Norscand") )
-    Article.create(:name => "Grönt skärmstag övre 1189", :article_number => "11-33-201", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
-    Article.create(:name => "Grönt skärmstag undre 1189", :article_number => "11-41-401", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
+    Article.create(:name => "Bakskärm 1189", :article_number => "11-49-101", :net_price => 360, :supplier => Supplier.first_or_create(:name => "Norscand"))
+    Article.create(:name => "Kedjeskydd 1189", :article_number => "11-48-101", :net_price => 200, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Skärmstag övre 1189", :article_number => "11-33-201", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
+    Article.create(:name => "Skärmstag undre 1189", :article_number => "11-41-401", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
 
 
     #flak
     Article.create(:name => "Lastflaksbotten, aluminium",  :net_price => 700, :supplier => Supplier.first_or_create(:name => "Montano"))
-    Article.create(:name => "Lastflakssarg, inpregnerat trä",  :net_price => 50, :supplier => Supplier.first_or_create("Brännö HB"))
+    Article.create(:name => "Lastflakssarg, inpregnerat trä, 1meter",  :net_price => 14, :supplier => Supplier.first_or_create("Brännö HB"))
 
 
 
@@ -113,7 +114,7 @@ class Seeder
     Article.create(:name => "Bakbromswire MCB", :article_number => "27-13-101", :net_price => 48, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Klamma för bensinslang", :article_number => "55-3068", :net_price => 4, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Växelpedal Lifan, Dubbel", :article_number => "61-31-401", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
-    Article.create(:name => "Monteringssats, Motor Lifan", :article_number => "61-34-101", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Monteringssats, Motor Lifan", :article_number => "61-34-101", :net_price => 250, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Däck 400-8 F-879", :article_number => "99-107-00", :net_price => 135, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Framhjul/Styrspindel Höger komplett inlk lager", :article_number => "K-1101", :net_price => 695, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Framhjul/Styrspindel Vänster komplett inlk lager", :article_number => "K-1102", :net_price => 695, :supplier => Supplier.first_or_create(:name => "Norscand") )
