@@ -4,13 +4,163 @@ class Seeder
     self.article
     self.construction
     self.part
+
   end
 
   def self.category
-    Category.create(:name => "Övrigt")
+    Category.create(:name => "Okategoriserat")
   end
 
+
   def self.article
+    ##brickor
+    Article.create(:name => "Bricka för M5 A4 Syrafast", :article_number => "3010500010", :net_price => 0.09, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Bricka för M6 A4 Syrafast", :article_number => "3010600010", :net_price => 0.16, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Bricka för M8 A4 Syrafast", :article_number => "3010800010", :net_price => 0.28, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Bricka för M10 A4 Syrafast", :article_number => "3011000010", :net_price => 0.52, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Bricka för M12 A4 Syrafast", :article_number => "3011200010", :net_price => 0.96, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    Article.create(:name => "Fjäder-Bricka för M5 A4 Syrafast", :article_number => "3030500010", :net_price => 0.08, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Fjäder-Bricka för M6 A4 Syrafast", :article_number => "3030600010", :net_price => 0.14, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Fjäder-Bricka för M8 A4 Syrafast", :article_number => "3030800010", :net_price => 0.38, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Fjäder-Bricka för M10 A4 Syrafast", :article_number => "3031000010", :net_price => 0.40, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Fjäder-Bricka för M12 A4 Syrafast", :article_number => "3031200010", :net_price => 0.60, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    ##mutter
+    Article.create(:name => "Låsmutter för M5 A4 Syrafast", :article_number => "2020500010", :net_price => 0.28, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Låsmutter för M6 A4 Syrafast", :article_number => "2020600010", :net_price => 0.40, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Låsmutter för M8 A4 Syrafast", :article_number => "2020800010", :net_price => 0.90, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Låsmutter för M10 A4 Syrafast", :article_number => "2021000010", :net_price => 1.92, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "Låsmutter för M12 A4 Syrafast", :article_number => "2021200010", :net_price => 2.88, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+
+    #skruv
+    Article.create(:name => "6-kantskruv M5x10 A4 Syrafast", :article_number => "1010501010", :net_price => 0.58, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M5x12 A4 Syrafast", :article_number => "1010501210", :net_price => 0.60, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M5x16 A4 Syrafast", :article_number => "1010501610", :net_price => 0.72, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M5x30 A4 Syrafast", :article_number => "1010503010", :net_price => 1.09, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    Article.create(:name => "6-kantskruv M6x14 A4 Syrafast", :article_number => "1010601410", :net_price => 0.92, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M6x30 A4 Syrafast", :article_number => "1010603010", :net_price => 1.24, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    Article.create(:name => "6-kantskruv M8x22 A4 Syrafast", :article_number => "1010802210", :net_price => 2.35, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M8x35 A4 Syrafast", :article_number => "1010803510", :net_price => 2.56, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M8x40 A4 Syrafast", :article_number => "1010804010", :net_price => 2.80, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M8x50 A4 Syrafast", :article_number => "1010805010", :net_price => 3.32, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M8x60 A4 Syrafast", :article_number => "1010805510", :net_price => 3.56, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    Article.create(:name => "6-kantskruv M10x14 A4 Syrafast", :article_number => "1011001410", :net_price => 6.37, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M10x22 A4 Syrafast", :article_number => "1011002210", :net_price => 4.34, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+    Article.create(:name => "6-kantskruv M10x75 A4 Syrafast", :article_number => "1011007510", :net_price => 8.32, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+
+    Article.create(:name => "6-kantskruv M12x70 A4 Syrafast", :article_number => "1011207010", :net_price => 10.41, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+    Article.create(:name => "Insex M5x20 A4 Syrafast", :article_number => "1050502010", :net_price => 0.80, :supplier => Supplier.first_or_create(:name => "FastPro"), :category => Category.first_or_create(:name => "Skruv och mutter") )
+
+
+    #bakskärm/kedjeskydd
+    Article.create(:name => "Grön bakskärm 1189", :article_number => "11-49-101", :net_price => 360, :supplier => Supplier.first_or_create(:name => "Norscand"))
+    Article.create(:name => "Grönt kedjeskydd 1189", :article_number => "11-48-101", :net_price => 200, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Grönt skärmstag övre 1189", :article_number => "11-33-201", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
+    Article.create(:name => "Grönt skärmstag undre 1189", :article_number => "11-41-401", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand"))
+
+
+    #flak
+    Article.create(:name => "Lastflaksbotten, aluminium",  :net_price => 700, :supplier => Supplier.first_or_create(:name => "Montano"))
+    Article.create(:name => "Lastflakssarg, inpregnerat trä",  :net_price => 50, :supplier => Supplier.first_or_create("Brännö HB"))
+
+
+
+
+
+
+
+    #okategoriserat
+    Article.create(:name => "Bromspedalgummi Lifan", :article_number => "01-17-404", :net_price => 25, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Gashandtag kompl. Svart med Spak", :article_number => "01-31-101A", :net_price => 130, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrstam 21mm", :article_number => "01-35-102", :net_price => 100, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styre MCB", :article_number => "06-55-101", :net_price => 150, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Sadel universal Svart", :article_number => "01-39-101", :net_price => 225, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromspedalgummi Lifan", :article_number => "01-17-404", :net_price => 25, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsbackar MCB", :article_number => "01-42-501", :net_price => 110, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Tanklock MCB", :article_number => "01-47-403", :net_price => 29, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrlagersats kompl MCB", :article_number => "01-66-508", :net_price => 200, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bensinkran M16 Kvalite", :article_number => "02-24-401", :net_price => 90, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Baklampa kompl Universal", :article_number => "02-41-301", :net_price => 66, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Fotstegsgummi HVA 21mm", :article_number => "02-56-301", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromspedalgummi Lifan", :article_number => "01-17-404", :net_price => 25, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Slang 350/400-8", :article_number => "04-15-301", :net_price => 49, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Fotpinnsbrygga med bromspedal Lifan", :article_number => "05-25-401", :net_price => 195, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bakdrev 54T för Leleu-nav", :article_number => "05-31-203", :net_price => 129, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Gummibuffert Flakmoped", :article_number => "11-41-101", :net_price => 150, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Kåpa för gummibuffert", :article_number => "11-41-201", :net_price => 45, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Stoppgummi MCB", :article_number => "11-41-303", :net_price => 20, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsstång fram", :article_number => "11-42-201", :net_price => 130, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Silentblock för framaxel", :article_number => "11-42-301", :net_price => 90, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsexcenter sats höger", :article_number => "11-43-101", :net_price => 80, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsexcenter sats vänster", :article_number => "11-43-201", :net_price => 85, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsarm fram", :article_number => "11-43-301", :net_price => 89, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Stänkskydd transport", :article_number => "11-44-101", :net_price => 80, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Silentblock för stag", :article_number => "11-44-201", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrklamma kompl", :article_number => "11-44-301", :net_price => 33, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrlänkarm kompl", :article_number => "11-45-201", :net_price => 165, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsstag fram kompl", :article_number => "11-46-101", :net_price => 89, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bromsstag bak kompl", :article_number => "11-43-401", :net_price => 50, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrlänk trp", :article_number => "11-48-201", :net_price => 160, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrlagerrör inre Transportmoped", :article_number => "11-52-301", :net_price => 240, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Kopplingshandtag med choke", :article_number => "14-48-301", :net_price => 150, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Bakbromswire MCB", :article_number => "27-13-101", :net_price => 48, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Klamma för bensinslang", :article_number => "55-3068", :net_price => 4, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Växelpedal Lifan, Dubbel", :article_number => "61-31-401", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Monteringssats, Motor Lifan", :article_number => "61-34-101", :net_price => 40, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Däck 400-8 F-879", :article_number => "99-107-00", :net_price => 135, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Framhjul/Styrspindel Höger komplett inlk lager", :article_number => "K-1101", :net_price => 695, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Framhjul/Styrspindel Vänster komplett inlk lager", :article_number => "K-1102", :net_price => 695, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Framhjul", :article_number => "11-58-101", :net_price => 500, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrspindel Höger", :article_number => "11-56-101", :net_price => 475, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Styrspindel Vänster", :article_number => "11-57-101", :net_price => 475, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Kullager 6005", :article_number => "55-1434", :net_price => 45, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Navkapsel Framhjul", :article_number => "11-45-101", :net_price => 42, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Låsring Framhjul", :article_number => "55-1838", :net_price => 5, :supplier => Supplier.first_or_create(:name => "Norscand") )
+
+
+    Article.create(:name => "Bensinslang Transparent", :article_number => "R-1002", :net_price => 12, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Tanklist Svart, Transportmoped ", :article_number => "R-1008", :net_price => 52, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Kedjesträckare MCB ", :article_number => "01-54-301", :net_price => 13, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Framdrev Lifan 12T", :article_number => "02-12-201", :net_price => 29, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Framdrev Lifan 13T", :article_number => "02-12-301", :net_price => 29, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Signalhorn 12V DC", :article_number => "05-33-301", :net_price => 49, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Avgaskrök Lifan", :article_number => "10-58-101", :net_price => 98, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Hörnbeslagsats till lastflak", :article_number => "11-42-101", :net_price => 165, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Kopplingswire Lifan, Norscand", :article_number => "20-14-401", :net_price => 36, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Omkopplare universal 3-vägs", :article_number => "01-32-102", :net_price => 95, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Fälgband 14-15", :article_number => "04-44-102", :net_price => 13, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Komplett bakhjul Leleu", :article_number => "H-1005", :net_price => 1695, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Däck 250-15 F-879", :article_number => "99-109-00", :net_price => 130, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Slang 225/250-15", :article_number => "04-33-101", :net_price => 47, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Parallellstag MCB 1189", :article_number => "11-47-101", :net_price => 179, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Pedal för parkeringsbroms", :article_number => "11-42-102", :net_price => 140, :supplier => Supplier.first_or_create(:name => "Norscand") )
+
+
+    Article.create(:name => "Avgassystem special", :article_number => "F-007", :net_price => 430, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Luftfilter-kåpa", :article_number => "Filter-kåpa-32", :net_price => 73, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Motor Lifan 49cc, kickstart", :article_number => "M-001", :net_price => 1700, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Multifunktion insugsplatta", :article_number => "041D", :net_price => 67, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Kedja 420 Lifan", :article_number => "kedja-420-120L", :net_price => 84, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Kopplingswire Lifan, BikeNet", :article_number => "F-028", :net_price => 50, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Bromshandtag, kopplingshandtag Lifan, BikeNet", :article_number => "F-016", :net_price => 50, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Framlyse 12 Volt, BikeNet", :article_number => "F-001", :net_price => 165, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Gasrulle med handtag", :article_number => "Gas+handtag", :net_price => 90, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Gasvajer, Lifan, BikeNet", :article_number => "047A", :net_price => 50, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+    Article.create(:name => "Bakdrev-60T BikeNet", :article_number => "F-010", :net_price => 105, :supplier => Supplier.first_or_create(:name => "BikeNet") )
+
+
+
+
+
+
+
   end
 
   def self.construction

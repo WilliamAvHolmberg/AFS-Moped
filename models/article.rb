@@ -5,8 +5,8 @@ class Article
   property :article_number,  String    # A unique 'number' to keep track of our articles
   property :name,            String    # Name of the Article
   property :created_at,      DateTime  # A DateTime, for any date you might like.
-  property :list_price,      Integer   # The suggested "retail" price that will be shown to our customers
-  property :net_price,       Integer   # The final charge we payed for the article (exluding vat)
+  property :list_price,      Decimal, :precision => 10, :scale => 2 # The suggested "retail" price that will be shown to our customers
+  property :net_price,       Decimal, :precision => 10, :scale => 2 # The final charge we payed for the article (exluding vat)
   property :description,     Text      # Description of the article
   property :img_src,         Text
   ## TOdo
