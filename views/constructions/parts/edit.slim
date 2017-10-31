@@ -1,7 +1,30 @@
-ul
-  - @parts.each do |part|
-    li
-      input type="checkbox" name="test" value="test" =part.name
-    - if part.parts.length > 0
-      - @parts = part.parts
-      == slim :'/constructions/parts/edit'
+table
+  tr
+    th id
+    th Art nr
+    th Benämning
+    th Pris
+    th Antal
+    th Status
+    th Val
+  - @part.part_articles.each do |part_article|
+    tr
+      form id="updateForm#{part_article.id}" method="POST" action="/constructions/#{@construction.id}/parts/#{@part.id}/articles/#{part_article.id}/update"
+      form id="deleteForm#{part_article.id}" method="POST" action="/constructions/#{@construction.id}/parts/#{@part.id}/articles/#{part_article.id}/delete"
+        td = part_article.article.id
+        td = part_article.article.article_number
+        td = part_article.article.name
+        td
+          input form="updateForm#{part_article.id}" type="integer" name="list_figure" required="" value= part_article.get_article_list_figure
+        td
+          input form="updateForm#{part_article.id}" type="integer" name="amount" required="" value= part_article.amount
+        td
+          select form="updateForm#{part_article.id}" type="integer" name="status" required=""
+            option value="0" Behöver beställas
+            option value="1" Beställd
+            option value="2" I lager
+            option value="3" Dedikerad
+        td
+          input form="updateForm#{part_article.id}" type="submit" value="Spara"
+          input type="submit" value="Radera" form="deleteForm#{part_article.id}"
+a.underline href="/constructions/#{@construction.id}/parts/#{@part.id}" Tillbaka

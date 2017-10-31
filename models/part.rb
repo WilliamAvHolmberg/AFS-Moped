@@ -40,38 +40,45 @@ class Part
     return @price
   end
 
-  def get_all_part_articles
-    @pas = []
+  def get_part_articles
+    @part_articles = []
     part_articles.each do |pa|
-      @pas.push(pa)
+      @part_articles.push(pa)
     end
 
     parts.each do |part|
-      part.part_articles.each do |pa|
-        @pas.push(pa)
-      end
+      @part_articles.push(part.get_part_articles)
     end
-    return @pas
+    puts @part_articles.length
+    return @part_articles
   end
 
 
-  def get_articles
+
+  def get_all_articles
     @articles = []
     part_articles.each do |pa|
       pa.amount.times do
-        puts pa.article.name
         @articles.push(pa.article)
       end
     end
 
     parts.each do |part|
-      part.get_articles.each do |article|
+      part.get_all_articles.each do |article|
       @articles.push(article)
     end
     end
-    @articles.each do |article|
-      puts article.name
-    end
     return @articles
+  end
+
+  def get_all_fastener_articles
+    elements = []
+    price = 0
+    get_all_articles.each do |article|
+      if article.category.name == "Skruv och mutter"
+        elements.push(article)
+      end
+    end
+    return elements
   end
 end

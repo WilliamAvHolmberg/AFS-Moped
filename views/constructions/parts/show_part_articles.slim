@@ -6,10 +6,13 @@ table
     th Pris
     th Antal
     th Belopp
+    th Status
   - @main_part.part_articles.each do |part_article|
     tr
       td = part_article.article.id
       td = part_article.article.article_number
       td = part_article.article.name
-      td = part_article.article.net_price
+      td = part_article.get_article_list_figure
       td = part_article.amount
+      td = part_article.get_list_figure
+      td = part_article.get_status

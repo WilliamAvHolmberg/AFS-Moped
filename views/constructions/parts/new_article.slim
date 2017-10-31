@@ -3,6 +3,7 @@ form method="POST" action="/constructions/#{@construction.id}/parts/#{@main_part
   table
     tr
       th Artikel
+      th Status
       th Antal
     form
     tr.articles
@@ -10,7 +11,13 @@ form method="POST" action="/constructions/#{@construction.id}/parts/#{@main_part
         select type="integer" name="article_id" required=""
           - @articles.each do |article|
               option value="#{article.id}"= article.name
+      td
+        select type="integer" name="status" required=""
+          option value="0" Behöver beställas
+          option value="1" Beställd
+          option value="2" I lager
+          option value="3" Dedikerad
       td.last
         input type="integer" name="amount" required=""
 
-  input type="submit" value="Submits"
+  input type="submit" value="Lägg till"

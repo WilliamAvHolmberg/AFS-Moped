@@ -26,6 +26,8 @@ class Article
     end
   end
 
+
+
   def article_number
     return "#{category_id}-#{id}"
   end

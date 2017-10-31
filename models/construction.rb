@@ -21,6 +21,16 @@ class Construction
     return Part.all(:construction => self, :part_id => nil)
   end
 
+  def get_total_cost
+    cost = 0
+    main_parts.each do |part|
+      cost+=part.get_list_figure
+    end
+    puts cost
+  end
+
+
+
 
   def get_all_parts
     @all_parts = []
@@ -31,9 +41,13 @@ class Construction
     return @all_parts
   end
 
+
+
+
   def loop_through(part)
-    if part.child_parts.length > 0
-      part.child_parts.each do |child_part|
+    if
+      part.parts.length > 0
+      part.parts.each do |child_part|
       self.loop_through(child_part)
       @all_parts.push(child_part)
       end
@@ -44,13 +58,14 @@ class Construction
   def get_all_articles
     @articles = []
     main_parts.each do |part|
-      part.get_articles.each do |article|
+      part.get_all_articles.each do |article|
         puts "asd:#{article.name}"
         @articles.push(article)
       end
     end
     return @articles
   end
+
 
 
   def remove

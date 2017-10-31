@@ -141,9 +141,10 @@ class App < Sinatra::Base
   end
 
   get '/constructions/:id/parts/:part/edit' do |id, part|
+    @construction = Construction.first(:id => id)
     @constructions = Construction.all
     @parts = Part.all
-    @part = Part.get(id)
+    @part = Part.get(part)
     @articles = Article.all
     slim :"constructions/parts/edit"
   end
@@ -165,6 +166,18 @@ class App < Sinatra::Base
 
   post '/constructions/:id/parts/:part_id/articles/new' do |id, part_id|
     PartArticle.create(:part_id => part_id, :article_id => params[:article_id], :amount => params[:amount])
+    redirect back
+  end
+
+  post '/constructions/:id/parts/:part_id/articles/:part_article_id/update' do |id, part_id, part_article_id|
+    part_article = PartArticle.first(:id => part_article_id)
+    part_article.update(:status => params[:status], :amount => params[:amount], :list_figure => params[:list_figure])
+    redirect back
+  end
+
+  post '/constructions/:id/parts/:part_id/articles/:part_article_id/delete' do |id, part_id, part_article_id|
+    part_article = PartArticle.first(:id => part_article_id)
+    part_article.destroy
     redirect back
   end
 
