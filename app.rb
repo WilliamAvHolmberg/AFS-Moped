@@ -165,7 +165,7 @@ class App < Sinatra::Base
   end
 
   post '/constructions/:id/parts/:part_id/articles/new' do |id, part_id|
-    PartArticle.create(:part_id => part_id, :article_id => params[:article_id], :amount => params[:amount])
+    PartArticle.create(:status => params[:status], :part_id => part_id, :article_id => params[:article_id], :amount => params[:amount])
     redirect back
   end
 

@@ -27,7 +27,9 @@ class Construction
       cost+=part.get_list_figure
     end
     puts cost
+    return cost
   end
+
 
 
 
@@ -40,6 +42,62 @@ class Construction
     end
     return @all_parts
   end
+
+
+  def get_all_part_articles
+    @all_part_articles = []
+
+
+    main_parts.each do |part|
+      part.get_all_part_articles.each do |pa|
+        @all_part_articles.push(pa)
+      end
+    end
+    price = 0
+    @all_part_articles.each do |pa|
+      price += pa.get_list_figure
+    end
+    puts price
+    return @all_part_articles
+  end
+
+  def get_all_part_articles_except_category(category)
+    @all_part_articles = []
+
+
+    main_parts.each do |part|
+      part.get_all_part_articles.each do |pa|
+        if pa.article.category.name != category
+        @all_part_articles.push(pa)
+        end
+      end
+    end
+    price = 0
+    @all_part_articles.each do |pa|
+      price += pa.get_list_figure
+    end
+    puts price
+    return @all_part_articles
+  end
+
+  def get_all_part_articles_except_category_and_only_specific_status(category, status)
+    all_part_articles = []
+
+    prices = 0
+    main_parts.each do |part|
+      part.get_all_part_articles.each do |pa|
+        if pa.article.category.name != category && pa.status == status
+        all_part_articles.push(pa)
+        puts "#{pa.article.name} #{pa.get_list_figure}"
+
+        prices += pa.get_list_figure
+        end
+      end
+    end
+    return all_part_articles
+  end
+
+
 
 
 
