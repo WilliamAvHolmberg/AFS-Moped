@@ -144,6 +144,13 @@ class Seeder
     Article.create(:name => "Kupolmutter M12x1", :article_number => "55-1637", :net_price => 15, :list_price => 25, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Parallellstag MCB 1189", :article_number => "11-47-101", :net_price => 179, :list_price => 375, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Pedal för parkeringsbroms", :article_number => "11-42-102", :net_price => 140, :list_price => 245, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Förgasare Lifan 49-72CC, Norscand", :article_number => "61-31-101", :net_price => 175, :list_price => 260, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Insugninrsrör Lifan typ 1", :article_number => "61-31-301", :net_price => 40, :list_price => 60, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Insugninrsrör Lifan typ 2", :article_number => "61-31-302", :net_price => 70, :list_price => 110, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Insugspackning Lifan", :article_number => "61-33-801", :net_price => 22, :list_price => 35, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Tändspole Lifan", :article_number => "61-31-601", :net_price => 64, :list_price => 100, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "CDI Lifan", :article_number => "05-31-301", :net_price => 40, :list_price => 60, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Voltregulator 12V", :article_number => "09-55-102", :net_price => 40, :list_price => 60, :supplier => Supplier.first_or_create(:name => "Norscand") )
 
 
     Article.create(:name => "Avgassystem special", :article_number => "F-007", :net_price => 430, :list_price => 630, :supplier => Supplier.first_or_create(:name => "BikeNet") )
@@ -237,11 +244,13 @@ class Seeder
 
           sadel = Part.create(:name => "Sadel", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
+            element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
           motor = Part.create(:name => "Motor", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Motor Lifan 49cc, kickstart"), :part => motor)
             förgasare = Part.create(:name => "Förgasare", :construction => flakmoped_skeleton, :part => motor)
-              #element = PartArticle.create(:article => Article.first(:name => "Förgasare (lägg in)"), :part => förgasare)
+              element = PartArticle.create(:article => Article.first(:name => "Förgasare Lifan 49-72CC, Norscand"), :part => förgasare)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Multifunktion insugsplatta"), :amount => 1, :part => förgasare)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "Insugninrsrör Lifan typ 1"), :amount => 1, :part => förgasare)
             fotbrygga = Part.create(:name => "Fotbrygga", :construction => flakmoped_skeleton, :part => motor)
               element = PartArticle.create(:article => Article.first(:name => "Fotpinnsbrygga med bromspedal Lifan"), :part => fotbrygga)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Fotstegsgummi HVA 21mm"), :amount => 1, :part => fotbrygga)
@@ -352,11 +361,16 @@ class Seeder
         elektrisk_utrustning = Part.create(:name => "Elektrisk utrustning", :construction => flakmoped_skeleton, :part => flakmoped_komplett)
           kopplingslåda = Part.create(:name => "Kopplingslåda", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
             element = PartArticle.create(:article => Article.first(:name => "Kopplingslåda"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "Tändspole Lifan"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "CDI Lifan"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "Voltregulator 12V"), :amount => "1", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Insex M5x20 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Bricka för M5 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M5 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
           framlyse = Part.create(:name => "Framlyse", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
             element = PartArticle.create(:article => Article.first(:name => "Framlyse 12 Volt, BikeNet"), :amount => "1", :part => framlyse)
+          tuta = Part.create(:name => "Tuta", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
+            element = PartArticle.create(:article => Article.first(:name => "Signalhorn 12V DC"), :amount => "1", :part => tuta)
 
 
 

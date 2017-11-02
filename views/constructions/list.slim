@@ -4,10 +4,13 @@ rh1 Konstruktioner
     tr
       th Namn
       th Pris
+      th Artiklar som behövs
     - @constructions.each do |construction|
       tr.constructions
         td
           a href="/constructions/#{construction.id}/parts/all" #{construction.name}
+        td
+          a = construction.get_total_cost.round
         td.last
-          a "Okänt i nuläget"
+          a  #{construction.get_all_required_part_articles.length}
 h3 <a href="/constructions/new"> Skapa ny konstruktion </a>

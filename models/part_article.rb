@@ -6,6 +6,7 @@ class PartArticle
   property :status,       Integer, :default => 0  #0 stands for "Not in stock", 1 stands for ordered but not recieved, 2 stands for "in stock" 3 stands for "dedicated to a specific construction"
   property :image_number, Integer
   property :list_figure,  Float, :default => -10
+  property :location,     String        #tex i vilken låda, källaren, i borås.. etc!
   belongs_to :part
   belongs_to :article
 

@@ -67,6 +67,7 @@ class App < Sinatra::Base
   post '/constructions/new' do
     construction = Construction.create(params[:construction])
     puts params[:construction]
+    construction.create_flakmoped_skeleton
     redirect to "/constructions/#{construction.id}"
   end
 
