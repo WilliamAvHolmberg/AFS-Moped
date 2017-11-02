@@ -1,7 +1,7 @@
 class Seeder
   def self.seed!
-    #self.category
-    #self.article
+    self.category
+    self.article
     self.construction
     self.flakmoped
 
