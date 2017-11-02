@@ -71,7 +71,7 @@ class MopedSkeleton
             förgasare = Part.create(:name => "Förgasare", :construction => flakmoped_skeleton, :part => motor)
               element = PartArticle.create(:article => Article.first(:name => "Förgasare Lifan 49-72CC, Norscand"), :part => förgasare)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Multifunktion insugsplatta"), :amount => 1, :part => förgasare)
-              fäst_element = PartArticle.create(:article => Article.first(:name => "Insugninrsrör Lifan typ 1"), :amount => 1, :part => förgasare)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "Insugningsrör Lifan typ 1"), :amount => 1, :part => förgasare)
             fotbrygga = Part.create(:name => "Fotbrygga", :construction => flakmoped_skeleton, :part => motor)
               element = PartArticle.create(:article => Article.first(:name => "Fotpinnsbrygga med bromspedal Lifan"), :part => fotbrygga)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Fotstegsgummi HVA 21mm"), :amount => 1, :part => fotbrygga)
