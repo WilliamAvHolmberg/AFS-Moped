@@ -1,7 +1,7 @@
 class Seeder
   def self.seed!
-    self.category
-    self.article
+    #self.category
+    #self.article
     self.construction
     self.flakmoped
 
@@ -114,7 +114,8 @@ class Seeder
     Article.create(:name => "Bakbromswire MCB", :article_number => "27-13-101", :net_price => 48, :list_price => 75, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Klamma för bensinslang", :article_number => "55-3068", :net_price => 4, :list_price => 5, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Växelpedal Lifan, Dubbel", :article_number => "61-31-401", :net_price => 40, :list_price => 80, :supplier => Supplier.first_or_create(:name => "Norscand") )
-    Article.create(:name => "Monteringssats, Motor Lifan", :article_number => "61-34-101", :net_price => 250, :list_price => 395, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Monteringssats 1189, Motor Lifan", :article_number => "61-34-101", :net_price => 250, :list_price => 395, :supplier => Supplier.first_or_create(:name => "Norscand") )
+    Article.create(:name => "Monteringssats 1187, Motor Lifan", :article_number => "61-34-701", :net_price => 350, :list_price => 495, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Däck 400-8 F-879", :article_number => "99-107-00", :net_price => 135, :list_price => 265, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Framhjul/Styrspindel Höger komplett inlk lager", :article_number => "K-1101", :net_price => 695, :list_price => 1295, :supplier => Supplier.first_or_create(:name => "Norscand") )
     Article.create(:name => "Framhjul/Styrspindel Vänster komplett inlk lager", :article_number => "K-1102", :net_price => 695, :list_price => 1295, :supplier => Supplier.first_or_create(:name => "Norscand") )
@@ -282,10 +283,10 @@ class Seeder
               fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M5 A4 Syrafast"), :amount => "4", :part => stänkskydd)
           framaxel = Part.create(:name => "Framaxel", :construction => flakmoped_skeleton, :part => framdel)
             silentblock = Part.create(:name => "Silentblock", :construction => flakmoped_skeleton, :part => framaxel)
-              element = PartArticle.create(:article => Article.first(:name => "Silentblock för framaxel"), :amount => "2", :part => framaxel)
-              fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M12x70 A4 Syrafast"), :amount => "2", :part => framaxel)
-              fäst_element = PartArticle.create(:article => Article.first(:name => "Fjäder-Bricka för M12 A4 Syrafast"), :amount => "2", :part => framaxel)
-              fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M12 A4 Syrafast"), :amount => "2", :part => framaxel)
+              element = PartArticle.create(:article => Article.first(:name => "Silentblock för framaxel"), :amount => "2", :part => silentblock)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M12x70 A4 Syrafast"), :amount => "2", :part => silentblock)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "Fjäder-Bricka för M12 A4 Syrafast"), :amount => "2", :part => silentblock)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M12 A4 Syrafast"), :amount => "2", :part => silentblock)
             hjulanordning = Part.create(:name => "Hjulanordning", :construction => flakmoped_skeleton,  :part => framaxel)
               framhjul_vänster= Part.create(:name => "Framhjul Vänster", :construction => flakmoped_skeleton,  :part => hjulanordning)
                 styrspindel_vänster= Part.create(:name => "Styrspindel Vänster", :construction => flakmoped_skeleton,  :part => framhjul_vänster)

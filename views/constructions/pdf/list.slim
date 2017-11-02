@@ -1,0 +1,20 @@
+div#container
+  table#mainTable
+
+    thead
+      tr
+        th = "art.nr"
+        th = "benämning"
+        th = "Pris"
+        th = "Antal"
+        th = "Belopp"
+    -@price = 0
+    tbody
+      -@construction.get_all_part_articles_except_category_and_only_specific_status("Skruv och mutter", 0).each do |pa|
+        tr
+          td = pa.article.article_number
+          td = pa.article.name
+          td = pa.article.list_price
+          td = pa.amount
+          -@price += (pa.article.list_price * pa.amount)
+          td = pa.article.list_price * pa.amount

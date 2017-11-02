@@ -3,15 +3,14 @@
 - else
   h1
     a.underline href="/constructions/#{@construction.id}""Konstruktion: #{@construction.name}....totalkostnad: #{@construction.get_total_cost}"
-  - if !@main_part.nil?
-    h1 Huvuddel: #{@main_part.name}
 
   - if !@main_parts.nil?
-    - @parts = @main_parts
-    == slim :'/constructions/parts/list'
+    .parts
+      - @parts = @main_parts
+      == slim :'/constructions/parts/list'
 
   == slim :'/constructions/parts/new'
 
 a href="/constructions/#{@construction.id}/edit" Redigera Konstruktion
-- @construction.get_all_part_articles_except_category_and_only_specific_status("Skruv och mutter", 0).each do |pa|
-  h1 = pa.article.name
+h1
+  a href="/pdf/constructions/#{@construction.id}/parts/all" pdf

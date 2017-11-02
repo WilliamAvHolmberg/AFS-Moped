@@ -99,3 +99,7 @@ span.description {
   overflow: scroll;
   word-wrap: break-word;
 }
+
+table#mainTable {
+  float: left;
+}

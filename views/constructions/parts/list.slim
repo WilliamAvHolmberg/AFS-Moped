@@ -1,7 +1,10 @@
-ul
+ul.parts
   - @parts.each do |part|
     li
-      a href="../parts/#{part.id}" #{part.name}.....price: #{part.get_list_figure}.....#{part.get_net_figure}
+      a href="../parts/#{part.id}" #{part.name}
+      a ...............#{part.get_list_figure.round}
+      a ...............#{part.get_all_completed_part_articles.length}/#{part.get_all_part_articles_except_category("Skruv och mutter").length} 
+
     - if part.parts.length > 0
       - @parts = part.parts
       == slim :'/constructions/parts/list'

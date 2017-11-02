@@ -112,6 +112,14 @@ class App < Sinatra::Base
     slim :"constructions/show"
   end
 
+  get '/pdf/constructions/:id/parts/all' do |id|
+    @construction = Construction.get(id)
+    @main_part = @construction
+    @main_parts = @construction.main_parts
+    @title = @construction.name
+    slim :"constructions/pdf/list"
+  end
+
 
   post '/constructions/:id/parts/delete' do
     if !params[:part_id].nil?

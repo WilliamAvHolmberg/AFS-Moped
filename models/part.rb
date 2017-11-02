@@ -58,6 +58,28 @@ class Part
     return @all_part_articles
   end
 
+  def get_all_part_articles_except_category(category)
+    @all_part_articles = []
+    part_articles.each do |pa|
+      if pa.article.category.name != category
+        @all_part_articles.push(pa)
+      end
+    end
+
+    parts.each do |part|
+      part.get_all_part_articles.each do |pa|
+        if pa.article.category.name != category
+          @all_part_articles.push(pa)
+        end
+      end
+    end
+    price = 0
+    @all_part_articles.each do |pa|
+      price += pa.get_list_figure
+    end
+    return @all_part_articles
+  end
+
 
 
   def get_all_articles
@@ -74,6 +96,26 @@ class Part
     end
     end
     return @articles
+  end
+
+  def get_all_required_part_articles
+    list = []
+    get_all_part_articles_except_category("Skruv och mutter").each do |pa|
+      if pa.status == 0
+        list.push(pa)
+      end
+    end
+    return list
+  end
+
+  def get_all_completed_part_articles
+    list = []
+    get_all_part_articles_except_category("Skruv och mutter").each do |pa|
+      if pa.status == 3
+        list.push(pa)
+      end
+    end
+    return list
   end
 
 
