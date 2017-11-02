@@ -146,7 +146,7 @@ class Construction
 
 
   def create_flakmoped_skeleton
-    flakmoped_skeleton = Construction.create(:name => "Flakmoped - 1")
+    flakmoped_skeleton = self
       flakmoped_komplett = Part.create(:name => "Komplett Flakmoped", :construction => flakmoped_skeleton)
         bakdel = Part.create(:name => "Bakdel", :construction => flakmoped_skeleton, :part => flakmoped_komplett)
           fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M8x22 A4 Syrafast"), :amount => 1, :part => bakdel)
