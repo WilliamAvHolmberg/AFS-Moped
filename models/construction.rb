@@ -146,7 +146,7 @@ class Construction
 
 
   def create_flakmoped_skeleton
-    flakmoped_skeleton = self
+    flakmoped_skeleton = Construction.create(:name => "Flakmoped - 1")
       flakmoped_komplett = Part.create(:name => "Komplett Flakmoped", :construction => flakmoped_skeleton)
         bakdel = Part.create(:name => "Bakdel", :construction => flakmoped_skeleton, :part => flakmoped_komplett)
           fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M8x22 A4 Syrafast"), :amount => 1, :part => bakdel)
@@ -210,11 +210,13 @@ class Construction
 
           sadel = Part.create(:name => "Sadel", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
+            element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
           motor = Part.create(:name => "Motor", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Motor Lifan 49cc, kickstart"), :part => motor)
             förgasare = Part.create(:name => "Förgasare", :construction => flakmoped_skeleton, :part => motor)
-              #element = PartArticle.create(:article => Article.first(:name => "Förgasare (lägg in)"), :part => förgasare)
+              element = PartArticle.create(:article => Article.first(:name => "Förgasare Lifan 49-72CC, Norscand"), :part => förgasare)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Multifunktion insugsplatta"), :amount => 1, :part => förgasare)
+              fäst_element = PartArticle.create(:article => Article.first(:name => "Insugninrsrör Lifan typ 1"), :amount => 1, :part => förgasare)
             fotbrygga = Part.create(:name => "Fotbrygga", :construction => flakmoped_skeleton, :part => motor)
               element = PartArticle.create(:article => Article.first(:name => "Fotpinnsbrygga med bromspedal Lifan"), :part => fotbrygga)
               fäst_element = PartArticle.create(:article => Article.first(:name => "Fotstegsgummi HVA 21mm"), :amount => 1, :part => fotbrygga)
@@ -325,12 +327,16 @@ class Construction
         elektrisk_utrustning = Part.create(:name => "Elektrisk utrustning", :construction => flakmoped_skeleton, :part => flakmoped_komplett)
           kopplingslåda = Part.create(:name => "Kopplingslåda", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
             element = PartArticle.create(:article => Article.first(:name => "Kopplingslåda"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "Tändspole Lifan"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "CDI Lifan"), :amount => "1", :part => kopplingslåda)
+            fäst_element = PartArticle.create(:article => Article.first(:name => "Voltregulator 12V"), :amount => "1", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Insex M5x20 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Bricka för M5 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
             fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M5 A4 Syrafast"), :amount => "4", :part => kopplingslåda)
           framlyse = Part.create(:name => "Framlyse", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
             element = PartArticle.create(:article => Article.first(:name => "Framlyse 12 Volt, BikeNet"), :amount => "1", :part => framlyse)
-
+          tuta = Part.create(:name => "Tuta", :construction => flakmoped_skeleton, :part => elektrisk_utrustning)
+            element = PartArticle.create(:article => Article.first(:name => "Signalhorn 12V DC"), :amount => "1", :part => tuta)
   end
 
 
