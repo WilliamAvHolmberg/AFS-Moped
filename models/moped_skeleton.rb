@@ -13,7 +13,7 @@ class MopedSkeleton
           fäst_element = PartArticle.create(:article => Article.first(:name => "Fjäder-Bricka för M10 A4 Syrafast"), :amount => 2, :part => bakdel)
           fäst_element = PartArticle.create(:article => Article.first(:name => "Fjäder-Bricka för M10 A4 Syrafast"), :amount => 2, :part => bakdel)
           monteringssats = Part.create(:name => "Monteringssats", :construction => flakmoped_skeleton, :part => bakdel)
-            element = PartArticle.create(:article => Article.first(:name => "Monteringssats 1189, Motor Lifan"), :part => monteringssats)
+            element = PartArticle.create(:article => Article.first(:name => "Monteringssats 1189, Motor Lifangit"), :part => monteringssats)
           bakskärm = Part.create(:name => "Bakskärm", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Bakskärm 1189"), :part => bakskärm)
             fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M5x12 A4 Syrafast"), :amount => 1, :part => bakskärm)
@@ -65,7 +65,7 @@ class MopedSkeleton
 
           sadel = Part.create(:name => "Sadel", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
-            element = PartArticle.create(:article => Article.first(:name => "Sadel universal Svart"), :part => sadel)
+            element = PartArticle.create(:article => Article.first(:name => "Sadelstolpe universal 22mm"), :part => sadel)
           motor = Part.create(:name => "Motor", :construction => flakmoped_skeleton, :part => bakdel)
             element = PartArticle.create(:article => Article.first(:name => "Motor Lifan 49cc, kickstart"), :part => motor)
             förgasare = Part.create(:name => "Förgasare", :construction => flakmoped_skeleton, :part => motor)
