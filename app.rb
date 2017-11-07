@@ -118,7 +118,7 @@ class App < Sinatra::Base
     @main_part = @construction
     @main_parts = @construction.main_parts
     @title = @construction.name
-    slim :"constructions/pdf/list"
+    slim :"constructions/pdf/list", :layout => false
   end
 
 
