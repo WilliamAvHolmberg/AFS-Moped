@@ -14,8 +14,8 @@ div#container
         tr
           td = pa.article.article_number
           td = pa.article.name
-          td = pa.article.list_price
+          td = pa.get_article_list_figure
           td = pa.amount
-          -@price += (pa.article.list_price * pa.amount)
+          -@price += (pa.get_article_list_figure * pa.amount)
           td = pa.article.list_price * pa.amount
 h1 "Totalpris:" #{@price}
