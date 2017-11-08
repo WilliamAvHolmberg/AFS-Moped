@@ -138,6 +138,8 @@ class MopedSkeleton
                   fäst_element = PartArticle.create(:article => Article.first(:name => "Låsring Framhjul"), :amount => "2", :part => styrspindel_höger)
                   fäst_element = PartArticle.create(:article => Article.first(:name => "Styrlagersats kompl MCB"), :amount => "1", :part => styrspindel_höger)
                   fäst_element = PartArticle.create(:article => Article.first(:name => "Bromsexcenter sats höger"), :amount => "1", :part => styrspindel_höger)
+                styrlänkarm= Part.create(:name => "Styrlänkarm", :construction => flakmoped_skeleton,  :part => framhjul_höger)
+                  element = PartArticle.create(:article => Article.first(:name => "Styrlänkarm kompl"), :amount => "1", :part => styrlänkarm)
                 fälg_höger= Part.create(:name => "Fälg höger", :construction => flakmoped_skeleton,  :part => framhjul_höger)
                   element = PartArticle.create(:article => Article.first(:name => "Framhjul"), :amount => "1", :part => fälg_höger)
                   fäst_element = PartArticle.create(:article => Article.first(:name => "Kullager 6005"), :amount => "2", :part => fälg_höger)
@@ -157,6 +159,7 @@ class MopedSkeleton
                 fäst_element = PartArticle.create(:article => Article.first(:name => "Låsmutter för M8 A4 Syrafast"), :amount => "2", :part => parallellstag)
               styrlänksstag= Part.create(:name => "Styrlänksstag", :construction => flakmoped_skeleton,  :part => styrinrättning)
                 element = PartArticle.create(:article => Article.first(:name => "Styrlänk trp"), :amount => "1", :part => styrlänksstag)
+
                 fäst_element = PartArticle.create(:article => Article.first(:name => "Silentblock för stag"), :amount => "2", :part => styrlänksstag)
                 fäst_element = PartArticle.create(:article => Article.first(:name => "6-kantskruv M8x40 A4 Syrafast"), :amount => "2", :part => styrlänksstag)
                 fäst_element = PartArticle.create(:article => Article.first(:name => "Bricka för M8 A4 Syrafast"), :amount => "4", :part => styrlänksstag)
