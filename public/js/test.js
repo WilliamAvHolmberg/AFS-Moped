@@ -7,5 +7,4 @@ jQuery(document).ready(function() {
     $secondTable.find("thead").append(head);
     $secondTable.find("tbody").append(rows);
     $mainTable.find ( "tr" ).slice( splitBy ).remove();
-  
 });
