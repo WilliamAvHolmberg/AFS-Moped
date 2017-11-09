@@ -4,10 +4,11 @@ div#container
     thead
       tr
         th = "art.nr"
-        th = "benämning"
+        th = "Benämning"
         th = "Pris"
         th = "Antal"
         th = "Belopp"
+        th = "Status"
     -@price = 0
     tbody
       -@construction.get_all_part_articles_except_category_and_only_specific_status("Skruv och mutter", 0).each do |pa|
@@ -18,4 +19,13 @@ div#container
           td = pa.amount
           -@price += (pa.get_article_list_figure * pa.amount)
           td = pa.article.list_price * pa.amount
+          - if pa.status == 0
+            - status = "Behöver beställas"
+          - if pa.status == 1
+            - status = "Beställd"
+          - if pa.status == 2
+            - status = "I lager"
+          - if pa.status == 3
+            - status = "Dedikerade"
+          td = status
 h1 "Totalpris:" #{@price}
