@@ -1,5 +1,6 @@
 jQuery(document).ready(function() {
     alert("hi");
+    alert("hi");
     var $mainTable = $("#mainTable");
     var splitBy = 37;
     var head = $mainTable.find ( "th" )
