@@ -31,6 +31,15 @@ class Construction
     return cost
   end
 
+  def get_total_net_figure
+    cost = 0
+    main_parts.each do |part|
+      cost+=part.get_net_figure
+    end
+    puts cost
+    return cost
+  end
+
   def get_all_required_part_articles
     list = []
     main_parts.each do |part|
