@@ -4,11 +4,14 @@ rh1 Konstruktioner
     tr
       th Namn
       th Pris
+      th Inköpspris utan moms
       th Artiklar som behövs
     - @constructions.each do |construction|
       tr.constructions
         td
           a href="/constructions/#{construction.id}/parts/all" #{construction.name}
+        td
+          a = construction.get_total_net_figure.round
         td
           a = construction.get_total_cost.round
         td.last
