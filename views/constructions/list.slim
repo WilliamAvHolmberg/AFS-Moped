@@ -3,17 +3,8 @@ rh1 Konstruktioner
   table
     tr
       th Namn
-      th Totalt Inköpspris utan moms
-      th Pris kvar
-      th Artiklar som behövs
     - @constructions.each do |construction|
       tr.constructions
         td
           a href="/constructions/#{construction.id}/parts/all" #{construction.name}
-        td
-          a = construction.get_total_net_figure.round
-        td
-          a = construction.get_total_cost.round
-        td.last
-          a  #{construction.get_all_required_part_articles.length}
 h3 <a href="/constructions/new"> Skapa ny konstruktion </a>
