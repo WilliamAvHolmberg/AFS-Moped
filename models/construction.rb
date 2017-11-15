@@ -22,7 +22,7 @@ class Construction
     return Part.all(:construction => self, :part_id => nil)
   end
 
-  def get_total_cost
+  def get_total_list_cost
     cost = 0
     main_parts.each do |part|
       cost+=part.get_list_figure
@@ -39,6 +39,8 @@ class Construction
     puts cost
     return cost
   end
+
+
 
   def get_all_required_part_articles
     list = []
